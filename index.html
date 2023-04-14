@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create-Shape-Dot</title>
+   
+
+    <style>
+     body{
+      background-color: #000;
+    }
+    .circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: rgb(129, 246, 120);
+  opacity: 1;
+  transition: opacity 1s;
+   }
+
+   #shape{
+        width: 100%;
+        height: 100vh;  
+      }
+    .h1{
+        color:#e0e5ec;
+        text-align: center;
+        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    }  
+    </style>
+</head>
+<body >
+   <h1 class="h1">Create-Shape-Dot: Interactive Circle Creator Project</h1>
+    <div id="shape"></div>
+
+    
+    <script>
+     
+        let circleDiv=document.getElementById("shape")
+
+        circleDiv.addEventListener("click",creatShape)
+        
+        function creatShape(event) {
+            const circle =document.createElement("div");
+            circle.classList.add("circle")
+            circle.style.left=event.clientX+"px";
+            circle.style.top=event.clientY+"px";
+            circleDiv.appendChild(circle);
+                   
+            setTimeout(function(){
+                circle.style.opacity = 0;
+                setTimeout(function(){
+                    circle.remove();
+                },1000)
+                
+            },1000)
+
+
+        }
+
+
+        
+        
+        
+     
+   </script>
+</body >
+
+
+
+
+</html>
